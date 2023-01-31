@@ -13,7 +13,6 @@ export class UsersService {
 
   createUser(createUserDto: CreateUserDto) {
     const password = encodePassword(createUserDto.password)
-    console.log(password)
     const newUser = this.userRepository.create({...createUserDto, password});
     return this.userRepository.save(newUser);
   }

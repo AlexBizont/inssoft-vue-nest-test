@@ -8,7 +8,6 @@ export class AuthService {
     @Inject('USER_SERVICE') private readonly userServices: UsersService,
   ) {}
   async validateUser(email: string, password: string) {
-    console.log('Inside validate');
     const userDB = await this.userServices.findUsersByUsername(email);
     if (userDB) {
       const matched = comparePassword(password, userDB.password);
